@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="IdentityService\" />
+    <Folder Include="EmailService\" />
+    <Folder Include="Notification\" />
+    <Folder Include="RestManager\" />
+    <Folder Include="PaymentService\" />
+  </ItemGroup>
+
 </Project>
