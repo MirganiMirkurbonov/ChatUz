@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Entities.Common;
 
-namespace Domain.Entities.Auth
+namespace Domain.Entities.Auth;
+
+public class AuthUsername : Entity<long>
 {
-    internal class AuthUsername
-    {
-    }
+    public string Username { get; set; }
+
 }
