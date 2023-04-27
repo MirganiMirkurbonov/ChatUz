@@ -24,7 +24,7 @@ public class AuthUser : EntityTrackedWithState<long>
     public string? PhoneNumber { get; set; }
 
     [Column("role_id")]
-    public long RoleId { get; set; }
+    public long? RoleId { get; set; }
 
     [ForeignKey(nameof(RoleId))]
     public virtual AuthRole? AuthRole { get; set; }
