@@ -29,4 +29,15 @@ public class AuthUser : EntityTrackedWithState<long>
     [ForeignKey(nameof(RoleId))]
     public virtual AuthRole? AuthRole { get; set; }
 
+    [Column("last_online_time")]
+    public DateTime LastOnlineTime { get; set; }
+
+    [Column("latitude")]
+    public double Latitude { get; set; }
+
+    [Column("longitude")]
+    public double Longitude { get; set; }
+
+    [Column("is_online")]
+    public bool IsOnline { get; set; }
 }
