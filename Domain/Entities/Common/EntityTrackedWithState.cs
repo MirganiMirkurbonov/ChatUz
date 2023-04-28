@@ -11,6 +11,4 @@ public class EntityTrackedWithState<Tid> : Entity<Tid>
     [Column("updated_at")]
     public DateTime UpdatedAt { get; set; }
 
-    [Column("state")]
-    public State State{ get; set; }
 }
