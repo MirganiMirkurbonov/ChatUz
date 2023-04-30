@@ -1,12 +1,12 @@
 ﻿using Domain.Entities.Common;
-using Domain.Enums;
+using Domain.Enums.Status;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistance.RootContext;
 
 public partial class EntityContext : DbContext
 {
-    public static string ConnectionString { get; set; }
+    public static string? ConnectionString { get; set; }
 
     /// <summary>
     /// 

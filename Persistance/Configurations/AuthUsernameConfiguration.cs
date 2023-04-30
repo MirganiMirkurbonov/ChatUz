@@ -1,5 +1,6 @@
 ﻿using Domain.Entities.Auth;
 using Domain.Enums;
+using Domain.Enums.Status;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

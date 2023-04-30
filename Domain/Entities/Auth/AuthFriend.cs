@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities.Auth;
 
-public class Friend : EntityTracked<long>
+[Table("auth_friends", Schema ="auth")]
+public class AuthFriend : EntityTracked<long>
 {
     [Column("requested_friend_id")]
     public long RequestedFriendId { get; set; }
