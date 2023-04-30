@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities.Common;
 
-public class EntityTrackedWithState<Tid> : Entity<Tid>
+public class EntityTracked<Tid> : Entity<Tid>
 {
     [Column("created_at")]
     public DateTime CreatedAt { get; set; }

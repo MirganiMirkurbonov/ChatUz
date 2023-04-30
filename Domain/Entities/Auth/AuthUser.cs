@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities.Auth;
 
-public class AuthUser : EntityTrackedWithState<long>
+public class AuthUser : EntityTracked<long>
 {
     [Column("first_name")]
     public string? FirstName { get; set; }

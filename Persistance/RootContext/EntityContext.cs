@@ -22,7 +22,7 @@ public partial class EntityContext : DbContext
     /// <returns></returns>
     public override int SaveChanges()
     {
-        foreach (var entity in ChangeTracker.Entries<EntityTrackedWithState<long>>())
+        foreach (var entity in ChangeTracker.Entries<EntityTracked<long>>())
         {
             if (entity.State == EntityState.Added)
             {
