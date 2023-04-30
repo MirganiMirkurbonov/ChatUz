@@ -1,6 +1,6 @@
 ﻿namespace Domain.Enums.Status;
 
-public enum UserState
+public enum UserStatus
 {
     Simple,
     Premium,

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities.Auth;
 
+[Table("auth_roles", Schema ="auth")]
 public class AuthRole : Entity<long>
 {
     [Column("description")]

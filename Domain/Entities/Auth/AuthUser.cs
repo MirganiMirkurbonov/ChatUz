@@ -1,8 +1,10 @@
 ﻿using Domain.Entities.Common;
+using Domain.Enums.Status;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities.Auth;
 
+[Table("auth_users", Schema ="auth")]
 public class AuthUser : EntityTracked<long>, IHaveHash, ILatLong
 {
     [Column("first_name")]
@@ -22,7 +24,6 @@ public class AuthUser : EntityTracked<long>, IHaveHash, ILatLong
 
     [Column("phone_number")]
     public string? PhoneNumber { get; set; }
-
 
     [Column("last_online_time")]
     public DateTime LastOnlineTime { get; set; }
@@ -44,4 +45,13 @@ public class AuthUser : EntityTracked<long>, IHaveHash, ILatLong
 
     [Column("last_otp")]
     public string? LastOtp { get; set; }
+
+    [Column("user_status")]
+    public UserStatus UserStatus { get; set; }
+
+    [Column("followers_count")]
+    public long FollowersCount { get; set; }
+
+    [Column("friends_count")]
+    public long FriendsCount { get; set; }
 }
