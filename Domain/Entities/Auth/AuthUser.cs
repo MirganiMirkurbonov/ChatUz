@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities.Auth;
 
-public class AuthUser : EntityTracked<long>
+public class AuthUser : EntityTracked<long>, IHaveHash, ILatLong
 {
     [Column("first_name")]
     public string? FirstName { get; set; }
@@ -23,6 +23,7 @@ public class AuthUser : EntityTracked<long>
     [Column("phone_number")]
     public string? PhoneNumber { get; set; }
 
+
     [Column("last_online_time")]
     public DateTime LastOnlineTime { get; set; }
 
@@ -34,4 +35,13 @@ public class AuthUser : EntityTracked<long>
 
     [Column("is_online")]
     public bool IsOnline { get; set; }
+
+    [Column("salt")]
+    public string? Salt { get; set; }
+
+    [Column("hash")]
+    public string? Hash { get; set; }
+
+    [Column("last_otp")]
+    public string? LastOtp { get; set; }
 }
