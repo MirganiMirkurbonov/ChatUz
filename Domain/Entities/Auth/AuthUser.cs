@@ -23,12 +23,6 @@ public class AuthUser : EntityTracked<long>
     [Column("phone_number")]
     public string? PhoneNumber { get; set; }
 
-    [Column("role_id")]
-    public long? RoleId { get; set; }
-
-    [ForeignKey(nameof(RoleId))]
-    public virtual AuthRole? AuthRole { get; set; }
-
     [Column("last_online_time")]
     public DateTime LastOnlineTime { get; set; }
 
