@@ -43,6 +43,9 @@ public class AuthUser : EntityTracked<long>, IHaveHash, ILatLong
     [Column("user_status")]
     public UserStatus UserStatus { get; set; }
 
+    [Column("location_visible_for")]
+    public LocationVisibleFor LocationVisibleFor { get; set; }
+
     [Column("friends_count")]
     public long FriendsCount { get; set; }
 }
