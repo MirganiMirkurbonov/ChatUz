@@ -2,7 +2,9 @@
 
 public enum UserStatus
 {
-    Simple,
-    Premium,
-    Verified
+    Working,
+    Studying,
+    Online,
+    Busy,
+    Hidden
 }

@@ -20,22 +20,16 @@ public class AuthUser : EntityTracked<long>, IHaveHash, ILatLong
     public virtual AuthUsername? Username { get; set; }
 
     [Column("email")]
-    public string? Email { get; set; }
+    public string? EmailHash { get; set; }
 
-    [Column("phone_number")]
-    public string? PhoneNumber { get; set; }
-
-    [Column("last_online_time")]
-    public DateTime LastOnlineTime { get; set; }
+    [Column("phone_hash")]
+    public string? PhoneHash { get; set; }
 
     [Column("latitude")]
     public double Latitude { get; set; }
 
     [Column("longitude")]
     public double Longitude { get; set; }
-
-    [Column("is_online")]
-    public bool IsOnline { get; set; }
 
     [Column("salt")]
     public string? Salt { get; set; }
@@ -44,13 +38,10 @@ public class AuthUser : EntityTracked<long>, IHaveHash, ILatLong
     public string? Hash { get; set; }
 
     [Column("last_otp")]
-    public string? LastOtp { get; set; }
+    public string? LastOtpHash { get; set; }
 
     [Column("user_status")]
     public UserStatus UserStatus { get; set; }
-
-    [Column("followers_count")]
-    public long FollowersCount { get; set; }
 
     [Column("friends_count")]
     public long FriendsCount { get; set; }
