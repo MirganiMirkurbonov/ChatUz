@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Enums.Status
+﻿namespace Domain.Enums.Status
 {
-    internal class LocationVisiblity
+    public enum LocationVisibleFor
     {
+        Everyone,
+        Friends,
+        Nobody,
     }
 }

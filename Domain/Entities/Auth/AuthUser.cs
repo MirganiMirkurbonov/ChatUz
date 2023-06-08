@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Domain.Entities.Auth;
 
 [Table("auth_users", Schema ="auth")]
-public class AuthUser : EntityTracked<long>, IHaveHash, ILatLong
+public class AuthUser : EntityTracked<long>, IHaveHash
 {
     [Column("first_name")]
     public string? FirstName { get; set; }
@@ -24,12 +24,6 @@ public class AuthUser : EntityTracked<long>, IHaveHash, ILatLong
 
     [Column("phone_hash")]
     public string? PhoneHash { get; set; }
-
-    [Column("latitude")]
-    public double Latitude { get; set; }
-
-    [Column("longitude")]
-    public double Longitude { get; set; }
 
     [Column("salt")]
     public string? Salt { get; set; }
