@@ -5,6 +5,7 @@ using Domain.Enums.Status;
 
 namespace Domain.Entities.Location;
 
+[Table("user_location", Schema = "locations")]
 public class UserLocation : EntityTracked<long>, ILatLong
 {
     [Column("latitude")]

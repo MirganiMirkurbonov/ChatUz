@@ -1,6 +1,7 @@
 ﻿using Domain.Entities.Common;
 using Domain.Enums.Status;
 using Microsoft.EntityFrameworkCore;
+using Persistance.Configurations;
 
 namespace Persistance.RootContext;
 
@@ -15,6 +16,18 @@ public partial class EntityContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
       => optionsBuilder.UseNpgsql(ConnectionString,
           builder => { builder.EnableRetryOnFailure(3, TimeSpan.FromSeconds(2), null); });
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="modelBuilder"></param>
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new AuthUserConfiguration());
+        modelBuilder.ApplyConfiguration(new AuthUsernameConfiguration());
+        
+        base.OnModelCreating(modelBuilder);
+    }
 
     /// <summary>
     /// 

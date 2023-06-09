@@ -10,8 +10,8 @@ public class AuthUserConfiguration : IEntityTypeConfiguration<AuthUser>
 {
     public void Configure(EntityTypeBuilder<AuthUser> builder)
     {
-        builder.HasIndex(x => x.Email).IsUnique();
-        builder.HasIndex(x => x.PhoneNumber).IsUnique();
+        builder.HasIndex(x => x.PhoneHash).IsUnique().HasFilter("phone_hash IS NOT NULL");
+        builder.HasIndex(x => x.EmailHash).IsUnique().HasFilter("email_hash IS NOT NULL");
         builder.HasQueryFilter(x => x.State != State.Deleted);
     }
 }

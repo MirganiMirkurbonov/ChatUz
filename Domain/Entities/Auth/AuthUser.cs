@@ -8,10 +8,13 @@ namespace Domain.Entities.Auth;
 public class AuthUser : EntityTracked<long>, IHaveHash
 {
     [Column("first_name")]
-    public string? FirstName { get; set; }
+    public string FirstName { get; set; }
 
     [Column("last_name")]
     public string? LastName { get; set; }
+
+    [Column("bio")]
+    public string? Bio { get; set; }
 
     [Column("username_id")]
     public long? UsernameId { get; set; }
@@ -19,7 +22,7 @@ public class AuthUser : EntityTracked<long>, IHaveHash
     [ForeignKey(nameof(UsernameId))]
     public virtual AuthUsername? Username { get; set; }
 
-    [Column("email")]
+    [Column("email_hash")]
     public string? EmailHash { get; set; }
 
     [Column("phone_hash")]

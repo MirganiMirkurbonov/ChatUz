@@ -3,6 +3,7 @@ using Domain.Entities.Common;
 
 namespace Domain.Entities.Location;
 
+[Table("location_photo", Schema = "locations")]
 public class LocationPhoto : EntityTracked<long>
 {
     [Column("url")]
