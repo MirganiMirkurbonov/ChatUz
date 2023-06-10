@@ -1,3 +1,4 @@
+using Infrastructure.RequestHandlers.ContextHelper;
 using Persistance;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,11 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
+
+    builder.Services.AddHttpContextAccessor(); // need for HttpContextHelper
     #region Read Appsettings.json
     var connectionString = builder.Configuration.GetConnectionString("PGDB");
     #endregion
 
-    builder.Services.AddPersistance(connectionString ?? String.Empty);
+    builder.Services.AddPersistance(connectionString ?? string.Empty);
 }
 
 var app = builder.Build();
@@ -24,6 +27,10 @@ var app = builder.Build();
     app.UseHttpsRedirection();
 
     app.UseAuthorization();
+
+
+    if (app.Services.GetService<IHttpContextAccessor>() != null)
+        HttpContextHelper.Accessor = app.Services.GetRequiredService<IHttpContextAccessor>();
 
     app.MapControllers();
 
