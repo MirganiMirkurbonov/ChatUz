@@ -3,6 +3,7 @@ using Infrastructure.RequestHandlers.Enums;
 using Infrastructure.RequestHandlers.Models;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Builder;
 
 namespace Infrastructure.RequestHandlers.Middlewares;
 
@@ -28,11 +29,17 @@ public class ExceptionHandler
             await HandleExceptionAsync(httpContext, ex);
         }
     }
-    private async Task HandleExceptionAsync(HttpContext context, Exception exception)
+    private static async Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
         context.Response.ContentType = "application/json";
         context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-        await context.Response.WriteAsync ( JsonConvert.SerializeObject(new ErrorResponse(HttpStatusCode.InternalServerError, ErrorCodes.InternalServerError)));
+        // TODO : change generic type if defaultResponse and simplify
+        await context.Response.WriteAsync ( JsonConvert.SerializeObject(new DefaultResponse<string>( new ErrorResponse(HttpStatusCode.InternalServerError, ErrorCodes.InternalServerError))
+        {
+            Success = false,
+            Result = null
+        }));
     }
+   
 }

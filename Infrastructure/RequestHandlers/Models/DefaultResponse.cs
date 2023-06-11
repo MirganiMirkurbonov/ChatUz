@@ -11,7 +11,6 @@ public class DefaultResponse<T>
     public ErrorResponse Error { get; set; }
 
 
-
     public DefaultResponse(T result)
     {
         HttpContextHelper.Current.Response.StatusCode = 200;

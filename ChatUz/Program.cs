@@ -1,3 +1,4 @@
+using Infrastructure;
 using Infrastructure.RequestHandlers.ContextHelper;
 using Persistance;
 
@@ -14,6 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
     #endregion
 
     builder.Services.AddPersistance(connectionString ?? string.Empty);
+
 }
 
 var app = builder.Build();
@@ -33,6 +35,8 @@ var app = builder.Build();
         HttpContextHelper.Accessor = app.Services.GetRequiredService<IHttpContextAccessor>();
 
     app.MapControllers();
+
+    app.ConfigureCustomExceptionMiddleware();
 
     app.Run();
 }
